@@ -14,7 +14,9 @@ def render() -> dict[Path, str]:
     paths = [*sorted((ROOT / "pa_recon").glob("*.py")), *sorted((ROOT / "tests").glob("test_*.py")),
              ROOT / "configs/pilot.json", ROOT / "LICENSE",
              *[ROOT / "results/development" / name for name in ("scales.json", "splits.csv", "checkpoint_provenance.json")]]
-    files = {p.relative_to(ROOT).as_posix(): p.read_bytes().decode("utf-8") for p in paths}
+    # Source text is normalized across checkouts; the archived split is byte-exact.
+    files = {p.relative_to(ROOT).as_posix(): (p.read_bytes().decode("utf-8") if p.name == "splits.csv"
+                                            else p.read_text(encoding="utf-8")) for p in paths}
     source_hash = hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()
     setup = (
         "from pathlib import Path\nimport json\nimport os\nimport subprocess\nimport sys\n\n"
