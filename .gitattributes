@@ -4,3 +4,4 @@
 *.npz binary
 *.h5 binary
 results/development/splits.csv -text whitespace=cr-at-eol
+results/kaggle-v1/splits.csv -text whitespace=cr-at-eol

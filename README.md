@@ -7,13 +7,13 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](pyproject.toml)
 [![Status](https://img.shields.io/badge/Research-development-orange.svg)](MODEL_CARD.md)
 
-[Quickstart](#quickstart) · [GPU notebook](kaggle_kernel/train.ipynb) · [Results](#measured-results) · [Research roadmap](ROADMAP.md) · [Contribute](CONTRIBUTING.md)
+[Quickstart](#quickstart) Â· [GPU notebook](https://www.kaggle.com/code/vinsymoyya/pa-recon-robust-synthetic-pilot) Â· [Results](#measured-results) Â· [Research roadmap](ROADMAP.md) Â· [Contribute](CONTRIBUTING.md)
 
 ![From signed detector signals to reconstruction and an uncertainty map, evaluated against held-out synthetic initial pressure](docs/assets/pipeline.svg)
 
 PA Recon Lab provides a compact, inspectable PyTorch baseline for mapping detector/time sinograms to initial-pressure images. It keeps data provenance, training splits, checkpoints, corruption settings, and evaluation outputs together so other researchers can reproduce and challenge a result.
 
-The current release is an early research toolkit. Its demo improves RMSE over zero output but loses on MAE. Real measurements, analytical reconstruction baselines, and uncertainty calibration remain open work. Diagnostic and universal virus/DNA detection claims are unsupported by this project.
+The current release is an early research toolkit. Its completed GPU pilot improves error over zero output and shows a clean-versus-corrupted input trade-off between training arms. Real measurements, analytical reconstruction baselines, and uncertainty calibration remain open work. Diagnostic and universal virus/DNA detection claims are unsupported by this project.
 
 ## What you can do today
 
@@ -46,7 +46,7 @@ pa-recon run --config configs/pilot.json --output runs/pilot --require-cuda
 
 The pilot trains two arms for 50 epochs each, selects each checkpoint by validation loss, and writes clean/stress metrics to a new output directory. It refuses to overwrite an existing run. It is a software and experiment pilot on 80 training, 10 validation, and 10 test sources; the subset cannot support final performance claims.
 
-**Use a hosted GPU:** open the [Kaggle notebook](kaggle_kernel/train.ipynb), or follow the [CLI launch guide](kaggle_kernel/README.md). The notebook embeds the package source and calls the same CLI. GPU and Internet must be enabled; no GPU session has been verified yet.
+**Use a hosted GPU:** open the [Kaggle notebook](kaggle_kernel/train.ipynb), or follow the [CLI launch guide](kaggle_kernel/README.md). The notebook embeds the package source and calls the same CLI. GPU and Internet must be enabled. Version 1 completed on a Tesla T4; the public notebook now runs 45 reliability checks before training.
 
 **Use a CPU or your own data:** see the [manual training and inference guide](docs/USAGE.md). HDF5 inputs are signed `sinogram` arrays, `(N, detectors, time)`; targets are `IP`, `(N, depth, lateral)`. The two spatial dimensions need not match.
 
@@ -60,20 +60,37 @@ pa-recon predict --file data/example_subset_100_samples.h5 \
   --output runs/prediction.npz
 ```
 
-The NPZ contains `reconstruction`, `predicted_sigma`, and `sinogram` in the dataset's relative units. Inference does not require a target dataset. No pretrained download is released yet; weights from the completed notebook are downloadable as Kaggle outputs. Predicted sigma needs calibration before use as a reliable interval.
+The NPZ contains `reconstruction`, `predicted_sigma`, and `sinogram` in the dataset's relative units. Inference does not require a target dataset. Both pretrained arms are available from [Kaggle Models](https://www.kaggle.com/models/vinsymoyya/pa-recon-lab). Predicted sigma needs calibration before use as a reliable interval.
 
 ## Measured results
 
-The existing local demo used width 8 and 10 epochs on the 100-sample subset. These development results were inspected during implementation; a future study needs a new frozen final holdout.
+The completed Tesla T4 pilot trained two width-16 arms for 50 epochs on 80/10/10 synthetic source partitions. Checkpoints were selected on validation loss. Metrics below use the same ten development test sources and corruption realization per condition.
 
-| Input condition | Model MAE ↓ | Zero MAE ↓ | Model RMSE ↓ | Zero RMSE ↓ | 1σ coverage |
-|---|---:|---:|---:|---:|---:|
-| Clean | 0.06848 | 0.06515 | 0.11458 | 0.16816 | 0.8289 |
-| Mild corruption | 0.06906 | 0.06515 | 0.11415 | 0.16816 | 0.8295 |
-| Moderate corruption | 0.07041 | 0.06515 | 0.11447 | 0.16816 | 0.8179 |
-| Severe corruption | 0.07372 | 0.06515 | 0.11675 | 0.16816 | 0.7681 |
+| Condition | Unaug. MAE ↓ | Aug. MAE ↓ | Unaug. RMSE ↓ | Aug. RMSE ↓ |
+|---|---:|---:|---:|---:|
+| Clean | 0.053400 | 0.054986 | 0.094284 | 0.094469 |
+| Mild | 0.056003 | 0.054657 | 0.096463 | 0.093939 |
+| Moderate | 0.059904 | 0.057268 | 0.100425 | 0.096362 |
+| Severe | 0.065107 | 0.062507 | 0.107071 | 0.102824 |
 
-Metrics are normalized by a fixed training-only scale. Each stress condition uses one corruption realization on the same 10 test sources. These numbers show a metric trade-off and uncertainty sensitivity; the zero baseline is a sanity check, not an acoustic reconstruction comparator. [Raw metrics and provenance](results/development/README.md) · [Data audit](DATA_AUDIT.md) · [Model card](MODEL_CARD.md).
+Augmentation lowers severe pooled RMSE by **3.97%** and increases clean MAE by **2.97%**. Zero-output MAE/RMSE are 0.065148/0.168156. It is a sanity comparator; conventional acoustic reconstruction remains a required baseline. A paired source-group bootstrap gives severe macro-RMSE delta -0.004451, exploratory 95% interval [-0.006430,-0.002380]. Macro and pooled RMSE are different endpoints. Sigma is uncalibrated.
+
+These are inspected development results from one training seed and one simulation setup. They do not establish device or clinical generalization. [Raw metrics and hashes](results/kaggle-v1/README.md) · [Pilot report](paper/PILOT_REPORT.md) · [Model card](MODEL_CARD.md). The older local demo remains separately archived in `results/development/`.
+
+## Open data, models and checks
+
+- [Data on Kaggle](https://www.kaggle.com/datasets/vinsymoyya/photoacoustic-skin-phantoms-100-source-mirror): unmodified 100-source subset, original authors credited, CC BY 4.0.
+- [Models on Kaggle](https://www.kaggle.com/models/vinsymoyya/pa-recon-lab): MIT weights for both arms, model card, checksums, metrics, scales and splits.
+- [Public GPU training](https://www.kaggle.com/code/vinsymoyya/pa-recon-robust-synthetic-pilot): fork and rerun the same package and configuration.
+- [45 named reliability checks](docs/RELIABILITY.md): leakage, normalization, numerical behavior, inference, provenance, failure recovery and paired statistics. Passing software checks does not establish scientific or clinical validity.
+
+```bash
+python scripts/check_reliability.py --expected 45
+# With the optional Kaggle CLI installed and authenticated:
+kaggle models instances versions download vinsymoyya/pa-recon-lab/pyTorch/augmented/1 -p checkpoints/augmented --untar
+```
+
+To reproduce the release staging, see [publication instructions](docs/PUBLICATION.md). Cite the original dataset alongside this toolkit. Reproducible comparisons, documented negative results, and meaningful forks help the project grow.
 
 ## Research direction
 
@@ -87,4 +104,4 @@ If the toolkit saves you experiment setup time, a star helps others find it. For
 
 ## Cite and reuse
 
-Use [CITATION.cff](CITATION.cff) to cite the software, and cite each dataset and method you use separately. This repository has no associated peer-reviewed paper yet. [License](LICENSE) · [Security](SECURITY.md) · [Community standards](CODE_OF_CONDUCT.md).
+Use [CITATION.cff](CITATION.cff) to cite the software, and cite each dataset and method you use separately. This repository has no associated peer-reviewed paper yet. [License](LICENSE) Â· [Security](SECURITY.md) Â· [Community standards](CODE_OF_CONDUCT.md).

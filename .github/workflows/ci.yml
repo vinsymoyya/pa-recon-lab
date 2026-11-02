@@ -30,7 +30,7 @@ jobs:
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           python -m pip install -e . build
       - name: Check research software contracts
-        run: python -m unittest discover -s tests -v
+        run: python scripts/check_reliability.py --expected 45
       - name: Check generated notebook matches the package
         run: python scripts/build_kaggle_notebook.py --check
       - name: Build distributable package

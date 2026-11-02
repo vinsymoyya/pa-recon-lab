@@ -1,6 +1,6 @@
 # Remote training pilot
 
-This private notebook downloads the 100-sample Zenodo synthetic subset, checks its published MD5, and compares unaugmented and augmented training using `configs/pilot.json`. It requires a CUDA GPU, selects each checkpoint by validation loss, and evaluates clean and fixed corrupted inputs. GPU absence causes an error instead of an unintended CPU training job.
+This public notebook downloads the 100-sample Zenodo synthetic subset, checks its published MD5, and compares unaugmented and augmented training using `configs/pilot.json`. It requires a CUDA GPU, selects each checkpoint by validation loss, and evaluates clean and fixed corrupted inputs. GPU absence causes an error instead of an unintended CPU training job.
 
 The notebook and portable script are generated from `pa_recon/` with `scripts/build_kaggle_notebook.py`. They embed the same package code and call its CLI. Checkpoints can therefore be loaded by the documented local `pa-recon predict` command.
 
@@ -18,4 +18,4 @@ Use `kaggle kernels status your-kaggle-username/pa-recon-robust-synthetic-pilot`
 
 After editing the package/configuration, rebuild with `python scripts/build_kaggle_notebook.py`. CI checks that these generated files match their sources.
 
-The kernel is configured as private with GPU and internet enabled. It depends on Kaggle allowing outbound download from Zenodo. Its output remains a development artifact; the 100-sample experiment is not publication-grade.
+The kernel is public with GPU and internet enabled. Version 1 completed on a Tesla T4; its original metrics are archived in `results/kaggle-v1/`. Version 2 adds the 45-check suite before training. It depends on Kaggle allowing outbound download from Zenodo. Its output remains a development artifact; the 100-sample experiment is not publication-grade.

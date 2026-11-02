@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import platform
 from pathlib import Path
 import sys
@@ -29,6 +30,32 @@ def run_experiment(config_path: str, output: str, file_override: str | None = No
         not name or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789_-" for c in name) for name in names
     ):
         raise ValueError("Arms need unique lowercase names containing letters, digits, underscores or hyphens")
+    allowed = {"epochs", "batch_size", "width", "learning_rate", "noise_std", "detector_dropout",
+               "gain_jitter", "mixup_alpha", "num_threads"}
+    for arm in arms:
+        parameters = {**config["training"], **arm.get("training", {})}
+        if set(parameters) - allowed:
+            raise ValueError(f"Unknown training parameters: {sorted(set(parameters) - allowed)}")
+        for key, value in parameters.items():
+            if not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ValueError(f"Training parameter {key} must be finite")
+            if key in {"epochs", "batch_size", "width", "num_threads"}:
+                if isinstance(value, bool) or int(value) != value or value < 1:
+                    raise ValueError(f"Training parameter {key} must be a positive integer")
+            elif value < 0 or (key == "learning_rate" and value == 0) or (key == "detector_dropout" and value >= 1):
+                raise ValueError(f"Training parameter {key} is outside its allowed range")
+    cases = config.get("stress_cases", [])
+    case_names = [case["name"] for case in cases]
+    if len(case_names) != len(set(case_names)) or any(
+        not name or name == "clean" or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789_-" for c in name)
+        for name in case_names
+    ):
+        raise ValueError("Stress names must be unique safe lowercase filenames and cannot be 'clean'")
+    for case in cases:
+        for key in ("noise_std", "detector_dropout", "gain_jitter"):
+            value = case[key]
+            if not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0 or (key == "detector_dropout" and value >= 1):
+                raise ValueError(f"Stress parameter {key} is outside its finite allowed range")
     source = Path(file_override or config["data_file"]).resolve()
     root = Path(output).resolve()
     if root.exists() and any(root.iterdir()):
@@ -72,20 +99,14 @@ def run_experiment(config_path: str, output: str, file_override: str | None = No
                      "--splits", str(splits), "--input-scale", str(scales["input_scale"]),
                      "--target-scale", str(scales["target_scale"]), "--seed", str(seed),
                      "--device", device, "--output", str(checkpoint)]
-        allowed = {"epochs", "batch_size", "width", "learning_rate", "noise_std", "detector_dropout",
-                   "gain_jitter", "mixup_alpha", "num_threads"}
-        if set(parameters) - allowed:
-            raise ValueError(f"Unknown training parameters: {sorted(set(parameters) - allowed)}")
         for key, value in parameters.items():
             arguments.extend(["--" + key.replace("_", "-"), str(value)])
         invoke(arguments)
         for split in ("validation", "test"):
             invoke(["evaluate", "--file", str(source), "--splits", str(splits), "--checkpoint", str(checkpoint),
                     "--split", split, "--device", device, "--output", str(arm_root / f"{split}_clean.json")])
-        for case in config.get("stress_cases", []):
+        for case in cases:
             case_name = case["name"]
-            if not case_name or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789_-" for c in case_name):
-                raise ValueError("Stress case names must be safe lowercase filenames")
             invoke(["evaluate", "--file", str(source), "--splits", str(splits), "--checkpoint", str(checkpoint),
                     "--device", device, "--output", str(arm_root / f"test_{case_name}.json"),
                     "--test-noise-std", str(case["noise_std"]), "--test-detector-dropout", str(case["detector_dropout"]),

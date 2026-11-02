@@ -223,8 +223,9 @@ def train_command(args: argparse.Namespace) -> None:
 
 
 def evaluate_command(args: argparse.Namespace) -> None:
-    if args.test_noise_std < 0 or args.test_gain_jitter < 0 or not 0 <= args.test_detector_dropout < 1:
-        raise ValueError("test noise/gain jitter must be nonnegative and detector dropout must be in [0, 1)")
+    if (not all(math.isfinite(v) for v in (args.test_noise_std, args.test_gain_jitter, args.test_detector_dropout))
+            or args.test_noise_std < 0 or args.test_gain_jitter < 0 or not 0 <= args.test_detector_dropout < 1):
+        raise ValueError("Use finite nonnegative test noise/gain jitter and detector dropout in [0, 1)")
     torch.manual_seed(args.corruption_seed)
     device = torch.device(args.device)
     checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=True)
@@ -335,9 +336,13 @@ def evaluate_command(args: argparse.Namespace) -> None:
 
 
 def predict_command(args: argparse.Namespace) -> None:
+    if args.sample_index < 0:
+        raise ValueError("sample-index must be nonnegative")
     device = torch.device(args.device)
     checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=True)
     model_cfg, data_cfg = checkpoint["model"], checkpoint["data"]
+    if any(not math.isfinite(data_cfg[key]) or data_cfg[key] <= 0 for key in ("input_scale", "target_scale")):
+        raise ValueError("Checkpoint normalization scales must be positive and finite")
     with h5py.File(args.file, "r") as handle:
         if data_cfg["input_key"] not in handle:
             raise KeyError(f"Input HDF5 key missing: {data_cfg['input_key']}")

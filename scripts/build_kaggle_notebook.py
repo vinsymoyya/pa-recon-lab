@@ -11,8 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def render() -> dict[Path, str]:
-    paths = [*sorted((ROOT / "pa_recon").glob("*.py")), ROOT / "configs/pilot.json", ROOT / "LICENSE"]
-    files = {p.relative_to(ROOT).as_posix(): p.read_text(encoding="utf-8") for p in paths}
+    paths = [*sorted((ROOT / "pa_recon").glob("*.py")), *sorted((ROOT / "tests").glob("test_*.py")),
+             ROOT / "configs/pilot.json", ROOT / "LICENSE",
+             *[ROOT / "results/development" / name for name in ("scales.json", "splits.csv", "checkpoint_provenance.json")]]
+    files = {p.relative_to(ROOT).as_posix(): p.read_bytes().decode("utf-8") for p in paths}
     source_hash = hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()
     setup = (
         "from pathlib import Path\nimport json\nimport os\nimport subprocess\nimport sys\n\n"
@@ -22,11 +24,13 @@ def render() -> dict[Path, str]:
         "for relative, content in source_files.items():\n"
         "    destination = project / relative\n"
         "    destination.parent.mkdir(parents=True, exist_ok=True)\n"
-        "    destination.write_text(content, encoding='utf-8')\n"
+        "    destination.write_text(content, encoding='utf-8', newline='')\n"
         f"print('Embedded source SHA256: {source_hash}')\n"
         "environment = dict(os.environ, PYTHONPATH=str(project), PYTHONUNBUFFERED='1')\n"
     )
     download = (
+        "subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],\n"
+        "               cwd=project, env=environment, check=True)\n"
         "subprocess.run([sys.executable, '-m', 'pa_recon.cli', 'download-data'],\n"
         "               cwd=project, env=environment, check=True)\n"
     )

@@ -1,0 +1,122 @@
+{
+  "clean": [
+    {
+      "metric": "model_mae_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": 0.0015856988728046417,
+      "paired_bootstrap_95ci": [
+        0.0007662398274987937,
+        0.002498195879161358
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    },
+    {
+      "metric": "model_rmse_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": 0.0003201924264431,
+      "paired_bootstrap_95ci": [
+        -0.00107452692463994,
+        0.0016732165031135083
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    }
+  ],
+  "mild": [
+    {
+      "metric": "model_mae_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.0013463109731674193,
+      "paired_bootstrap_95ci": [
+        -0.0021700729243457314,
+        -0.0004886880517005923
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    },
+    {
+      "metric": "model_rmse_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.0025814972817897797,
+      "paired_bootstrap_95ci": [
+        -0.0036544819362461568,
+        -0.0014743658155202868
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    }
+  ],
+  "moderate": [
+    {
+      "metric": "model_mae_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.002635285258293152,
+      "paired_bootstrap_95ci": [
+        -0.0033260820154100658,
+        -0.0018947297055274248
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    },
+    {
+      "metric": "model_rmse_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.004175454378128052,
+      "paired_bootstrap_95ci": [
+        -0.005083263423293829,
+        -0.0030478647351264952
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    }
+  ],
+  "severe": [
+    {
+      "metric": "model_mae_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.0025996014475822447,
+      "paired_bootstrap_95ci": [
+        -0.003556228205561638,
+        -0.0015981802251189949
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    },
+    {
+      "metric": "model_rmse_normalized",
+      "direction": "candidate minus reference; lower favors candidate",
+      "group_count": 10,
+      "mean_paired_delta": -0.004450758546590805,
+      "paired_bootstrap_95ci": [
+        -0.006429706867784262,
+        -0.002379857785999775
+      ],
+      "resamples": 10000,
+      "seed": 20261011,
+      "unit": "source group",
+      "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+    }
+  ]
+}

@@ -4,5 +4,7 @@ recursive-include docs *.md *.svg
 recursive-include scripts *.py *.ps1
 recursive-include kaggle_kernel *.py *.ipynb *.json *.md
 recursive-include results/development *.json *.csv *.md
+recursive-include results/kaggle-v1 *.json *.csv *.md
+recursive-include paper *.md
 recursive-include tests *.py
 global-exclude *.py[cod]

@@ -1,0 +1,258 @@
+{
+  "test_samples": 10,
+  "evaluation_split": "test",
+  "split_csv_sha256": "9fba8c0491ba3d3c1fba52d9a2200b0dbbfcb6851491f63ff6d770c81dd36a2e",
+  "model_mae_normalized": 0.05990355014801026,
+  "zero_baseline_mae_normalized": 0.06514792591333389,
+  "model_rmse_normalized": 0.10042476889792858,
+  "zero_baseline_rmse_normalized": 0.16815552196901587,
+  "target_rms_normalized": 0.16815552196901587,
+  "predicted_1sigma_coverage": 0.7821182250976563,
+  "mean_predicted_sigma_normalized": 0.06747678220272064,
+  "input_scale": 200.3921356201172,
+  "target_scale": 366.55120849609375,
+  "test_corruption": {
+    "noise_std_normalized": 0.025,
+    "detector_dropout": 0.1,
+    "detector_gain_jitter": 0.1,
+    "seed": 20261011
+  },
+  "reference": "synthetic initial pressure (IP) from digital-skin phantom dataset",
+  "model_mae_target_units": 21.957718699959514,
+  "zero_baseline_mae_target_units": 23.88005097454652,
+  "group_macro_model_mae_normalized": 0.05990354940295219,
+  "group_macro_model_mae_normalized_bootstrap_95ci": [
+    0.05683583691716194,
+    0.0630562087893486
+  ],
+  "group_macro_model_rmse_normalized": 0.09993147924542427,
+  "group_macro_model_rmse_normalized_bootstrap_95ci": [
+    0.09368642946705222,
+    0.10623790843412279
+  ],
+  "group_macro_zero_baseline_mae_normalized": 0.06514792814850807,
+  "group_macro_zero_baseline_mae_normalized_bootstrap_95ci": [
+    0.06237823685631156,
+    0.06780541140586138
+  ],
+  "group_macro_zero_baseline_rmse_normalized": 0.16799681335687638,
+  "group_macro_zero_baseline_rmse_normalized_bootstrap_95ci": [
+    0.16342685386538505,
+    0.1721946758404374
+  ],
+  "group_count": 10,
+  "per_group_metrics": [
+    {
+      "group_id": "13940",
+      "samples": 1,
+      "model_mae_normalized": 0.06213587522506714,
+      "model_rmse_normalized": 0.10475605726242065,
+      "zero_baseline_mae_normalized": 0.06292399764060974,
+      "zero_baseline_rmse_normalized": 0.15933294594287872,
+      "one_sigma_coverage": 0.777191162109375,
+      "mean_predicted_sigma_normalized": 0.06938008964061737
+    },
+    {
+      "group_id": "21213",
+      "samples": 1,
+      "model_mae_normalized": 0.06271886080503464,
+      "model_rmse_normalized": 0.10908529907464981,
+      "zero_baseline_mae_normalized": 0.06609049439430237,
+      "zero_baseline_rmse_normalized": 0.17308562994003296,
+      "one_sigma_coverage": 0.7838287353515625,
+      "mean_predicted_sigma_normalized": 0.06708255410194397
+    },
+    {
+      "group_id": "24849",
+      "samples": 1,
+      "model_mae_normalized": 0.05434785783290863,
+      "model_rmse_normalized": 0.08723047375679016,
+      "zero_baseline_mae_normalized": 0.06539803743362427,
+      "zero_baseline_rmse_normalized": 0.16289326548576355,
+      "one_sigma_coverage": 0.7874908447265625,
+      "mean_predicted_sigma_normalized": 0.06507909297943115
+    },
+    {
+      "group_id": "31516",
+      "samples": 1,
+      "model_mae_normalized": 0.06173417717218399,
+      "model_rmse_normalized": 0.10280468314886093,
+      "zero_baseline_mae_normalized": 0.06181083619594574,
+      "zero_baseline_rmse_normalized": 0.15932779014110565,
+      "one_sigma_coverage": 0.7913055419921875,
+      "mean_predicted_sigma_normalized": 0.06929238140583038
+    },
+    {
+      "group_id": "35758",
+      "samples": 1,
+      "model_mae_normalized": 0.05550394207239151,
+      "model_rmse_normalized": 0.0910322442650795,
+      "zero_baseline_mae_normalized": 0.06100260466337204,
+      "zero_baseline_rmse_normalized": 0.17169931530952454,
+      "one_sigma_coverage": 0.814605712890625,
+      "mean_predicted_sigma_normalized": 0.06623223423957825
+    },
+    {
+      "group_id": "36970",
+      "samples": 1,
+      "model_mae_normalized": 0.05654951184988022,
+      "model_rmse_normalized": 0.09454503655433655,
+      "zero_baseline_mae_normalized": 0.07194605469703674,
+      "zero_baseline_rmse_normalized": 0.17588701844215393,
+      "one_sigma_coverage": 0.77996826171875,
+      "mean_predicted_sigma_normalized": 0.06560732424259186
+    },
+    {
+      "group_id": "38182",
+      "samples": 1,
+      "model_mae_normalized": 0.05282052606344223,
+      "model_rmse_normalized": 0.08721533417701721,
+      "zero_baseline_mae_normalized": 0.0688638836145401,
+      "zero_baseline_rmse_normalized": 0.17184554040431976,
+      "one_sigma_coverage": 0.7888336181640625,
+      "mean_predicted_sigma_normalized": 0.06624235957860947
+    },
+    {
+      "group_id": "45455",
+      "samples": 1,
+      "model_mae_normalized": 0.07085540890693665,
+      "model_rmse_normalized": 0.11848735064268112,
+      "zero_baseline_mae_normalized": 0.05657282471656799,
+      "zero_baseline_rmse_normalized": 0.15600314736366272,
+      "one_sigma_coverage": 0.7596893310546875,
+      "mean_predicted_sigma_normalized": 0.07147399336099625
+    },
+    {
+      "group_id": "55152",
+      "samples": 1,
+      "model_mae_normalized": 0.057948216795921326,
+      "model_rmse_normalized": 0.09543702006340027,
+      "zero_baseline_mae_normalized": 0.06823323667049408,
+      "zero_baseline_rmse_normalized": 0.17470915615558624,
+      "one_sigma_coverage": 0.77685546875,
+      "mean_predicted_sigma_normalized": 0.06651323288679123
+    },
+    {
+      "group_id": "6062",
+      "samples": 1,
+      "model_mae_normalized": 0.06442111730575562,
+      "model_rmse_normalized": 0.1087212935090065,
+      "zero_baseline_mae_normalized": 0.06863731145858765,
+      "zero_baseline_rmse_normalized": 0.17518432438373566,
+      "one_sigma_coverage": 0.76141357421875,
+      "mean_predicted_sigma_normalized": 0.0678645446896553
+    }
+  ],
+  "per_sample_metrics": [
+    {
+      "sample_index": 10,
+      "group_id": "6062",
+      "model_mae_normalized": 0.06442111730575562,
+      "model_rmse_normalized": 0.1087212935090065,
+      "zero_baseline_mae_normalized": 0.06863731145858765,
+      "zero_baseline_rmse_normalized": 0.17518432438373566,
+      "target_rms_normalized": 0.17518432438373566,
+      "one_sigma_coverage": 0.76141357421875,
+      "mean_predicted_sigma_normalized": 0.0678645446896553
+    },
+    {
+      "sample_index": 23,
+      "group_id": "13940",
+      "model_mae_normalized": 0.06213587522506714,
+      "model_rmse_normalized": 0.10475605726242065,
+      "zero_baseline_mae_normalized": 0.06292399764060974,
+      "zero_baseline_rmse_normalized": 0.15933294594287872,
+      "target_rms_normalized": 0.15933294594287872,
+      "one_sigma_coverage": 0.777191162109375,
+      "mean_predicted_sigma_normalized": 0.06938008964061737
+    },
+    {
+      "sample_index": 35,
+      "group_id": "21213",
+      "model_mae_normalized": 0.06271886080503464,
+      "model_rmse_normalized": 0.10908529907464981,
+      "zero_baseline_mae_normalized": 0.06609049439430237,
+      "zero_baseline_rmse_normalized": 0.17308562994003296,
+      "target_rms_normalized": 0.17308562994003296,
+      "one_sigma_coverage": 0.7838287353515625,
+      "mean_predicted_sigma_normalized": 0.06708255410194397
+    },
+    {
+      "sample_index": 41,
+      "group_id": "24849",
+      "model_mae_normalized": 0.05434785783290863,
+      "model_rmse_normalized": 0.08723047375679016,
+      "zero_baseline_mae_normalized": 0.06539803743362427,
+      "zero_baseline_rmse_normalized": 0.16289326548576355,
+      "target_rms_normalized": 0.16289326548576355,
+      "one_sigma_coverage": 0.7874908447265625,
+      "mean_predicted_sigma_normalized": 0.06507909297943115
+    },
+    {
+      "sample_index": 52,
+      "group_id": "31516",
+      "model_mae_normalized": 0.06173417717218399,
+      "model_rmse_normalized": 0.10280468314886093,
+      "zero_baseline_mae_normalized": 0.06181083619594574,
+      "zero_baseline_rmse_normalized": 0.15932779014110565,
+      "target_rms_normalized": 0.15932779014110565,
+      "one_sigma_coverage": 0.7913055419921875,
+      "mean_predicted_sigma_normalized": 0.06929238140583038
+    },
+    {
+      "sample_index": 59,
+      "group_id": "35758",
+      "model_mae_normalized": 0.05550394207239151,
+      "model_rmse_normalized": 0.0910322442650795,
+      "zero_baseline_mae_normalized": 0.06100260466337204,
+      "zero_baseline_rmse_normalized": 0.17169931530952454,
+      "target_rms_normalized": 0.17169931530952454,
+      "one_sigma_coverage": 0.814605712890625,
+      "mean_predicted_sigma_normalized": 0.06623223423957825
+    },
+    {
+      "sample_index": 61,
+      "group_id": "36970",
+      "model_mae_normalized": 0.05654951184988022,
+      "model_rmse_normalized": 0.09454503655433655,
+      "zero_baseline_mae_normalized": 0.07194605469703674,
+      "zero_baseline_rmse_normalized": 0.17588701844215393,
+      "target_rms_normalized": 0.17588701844215393,
+      "one_sigma_coverage": 0.77996826171875,
+      "mean_predicted_sigma_normalized": 0.06560732424259186
+    },
+    {
+      "sample_index": 63,
+      "group_id": "38182",
+      "model_mae_normalized": 0.05282052606344223,
+      "model_rmse_normalized": 0.08721533417701721,
+      "zero_baseline_mae_normalized": 0.0688638836145401,
+      "zero_baseline_rmse_normalized": 0.17184554040431976,
+      "target_rms_normalized": 0.17184554040431976,
+      "one_sigma_coverage": 0.7888336181640625,
+      "mean_predicted_sigma_normalized": 0.06624235957860947
+    },
+    {
+      "sample_index": 75,
+      "group_id": "45455",
+      "model_mae_normalized": 0.07085540890693665,
+      "model_rmse_normalized": 0.11848735064268112,
+      "zero_baseline_mae_normalized": 0.05657282471656799,
+      "zero_baseline_rmse_normalized": 0.15600314736366272,
+      "target_rms_normalized": 0.15600314736366272,
+      "one_sigma_coverage": 0.7596893310546875,
+      "mean_predicted_sigma_normalized": 0.07147399336099625
+    },
+    {
+      "sample_index": 91,
+      "group_id": "55152",
+      "model_mae_normalized": 0.057948216795921326,
+      "model_rmse_normalized": 0.09543702006340027,
+      "zero_baseline_mae_normalized": 0.06823323667049408,
+      "zero_baseline_rmse_normalized": 0.17470915615558624,
+      "target_rms_normalized": 0.17470915615558624,
+      "one_sigma_coverage": 0.77685546875,
+      "mean_predicted_sigma_normalized": 0.06651323288679123
+    }
+  ]
+}
