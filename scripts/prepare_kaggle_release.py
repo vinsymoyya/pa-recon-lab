@@ -29,7 +29,7 @@ def main():
     data = args.output / "data"
     data.mkdir(parents=True)
     shutil.copyfile(args.dataset, data / args.dataset.name)
-    shutil.copyfile(ROOT / "data/zenodo_readme.md", data / "ORIGINAL_README.md")
+    shutil.copyfile(ROOT / "docs/data/SOURCE_README.md", data / "ORIGINAL_README.md")
     attribution = (
         "# Synthetic photoacoustic skin phantom subset\n\n"
         "Unmodified 100-sample subset by Alagappan, G., Low, S., Xia, Y., Zhen, L. and Olivo, M. (2026), "
