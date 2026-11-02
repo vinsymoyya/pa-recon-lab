@@ -52,6 +52,8 @@ The pilot trains two arms for 50 epochs each, selects each checkpoint by validat
 
 ## Run inference
 
+**No local installation:** [fork the CPU inference notebook](https://www.kaggle.com/code/vinsymoyya/pa-recon-open-model-inference). It attaches the open data and model, predicts one development test source, and plots the reference, reconstruction, error and uncalibrated sigma. GPU and Internet are not required.
+
 After training, the checkpoint works directly with:
 
 ```bash
