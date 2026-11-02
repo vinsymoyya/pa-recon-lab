@@ -1,6 +1,6 @@
 include LICENSE CITATION.cff README.md CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md ROADMAP.md DATA_AUDIT.md MODEL_CARD.md PAI_RESEARCH_BLUEPRINT.md
 recursive-include configs *.json
-recursive-include docs *.md *.svg
+recursive-include docs *.md *.svg *.png
 recursive-include scripts *.py *.ps1
 recursive-include kaggle_kernel *.py *.ipynb *.json *.md
 recursive-include kaggle_inference *.ipynb *.json

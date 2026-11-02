@@ -40,6 +40,8 @@ Paired source-group macro-RMSE delta (augmented minus unaugmented), severe: -0.0
 
 ## Reliability and limitations
 
+The public inference example selects the first development test source in the split CSV (source ID 6062). Visual inspection shows that much of its fine and deep vascular pattern is missing in the reconstruction. Lower aggregate RMSE does not establish preservation of vascular anatomy. [Observed example](https://github.com/vinsymoyya/pa-recon-lab/blob/main/docs/assets/pilot_reconstruction.png).
+
 The software provides 45 automated checks covering leakage, normalization, numerics, inference, provenance, downloads, preflight validation, and paired analysis. Passing them establishes those software contracts, not diagnostic accuracy, generalization, or calibrated uncertainty.
 
 Sigma is uncalibrated. Coverage alone does not establish useful uncertainty or out-of-distribution detection. The test split was inspected during development; a confirmatory study must reserve a new frozen holdout. Full-release evaluation, multiple seeds, analytical and learned comparators, parameterized physics shifts, and independent measured data remain required. No inference-speed or clinical superiority claim is made.

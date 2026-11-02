@@ -79,6 +79,8 @@ Augmentation lowers severe pooled RMSE by **3.97%** and increases clean MAE by *
 
 These are inspected development results from one training seed and one simulation setup. They do not establish device or clinical generalization. [Raw metrics and hashes](results/kaggle-v1/README.md) · [Pilot report](paper/PILOT_REPORT.md) · [Model card](MODEL_CARD.md). The older local demo remains separately archived in `results/development/`.
 
+**Observed failure:** the public inference example (source 6062, first development test source) loses much of the fine/deep vessel pattern. Aggregate RMSE gains do not demonstrate anatomical recovery. [View reconstruction, reference and error](docs/assets/pilot_reconstruction.png).
+
 ## Open data, models and checks
 
 - [Data on Kaggle](https://www.kaggle.com/datasets/vinsymoyya/photoacoustic-skin-phantoms-100-source-mirror): unmodified 100-source subset, original authors credited, CC BY 4.0.

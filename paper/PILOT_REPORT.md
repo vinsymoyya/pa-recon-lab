@@ -67,6 +67,10 @@ Passing checks establishes specific software contracts, not biological validity 
 
 ## 5. Discussion and limitations
 
+![Reference, reconstruction, absolute error and uncalibrated sigma for the first development test source](../docs/assets/pilot_reconstruction.png)
+
+**Qualitative failure example.** The public CPU inference notebook selects the first test entry in the split CSV, source ID 6062, without screening examples by image quality. Much of its fine and deep vascular pattern is missing in the reconstruction. The surface signal is more apparent than the vessels. This observation limits the meaning of aggregate error improvements and makes task-based anatomical evaluation a necessary next gate. Figure source arrays are credited to Alagappan et al. [1], CC BY 4.0; reconstruction and plotting use the released augmented checkpoint.
+
 This study uses one training seed, ten development test sources, one corruption realization per condition, and one simulator. The test split was repeatedly inspected during development. Bootstrap intervals describe source sampling within this small set, not total study uncertainty. Sparse foreground structure can affect MAE and RMSE differently; neither metric establishes useful vascular-detail detection. Conventional acoustic baselines, learned comparators, SSIM, task-based endpoints, calibrated uncertainty and independent measurements have not been completed. Real-scanner, skin-tone and pathology generalization remain untested.
 
 A confirmatory study must reserve a new unseen holdout from the full release, validate a conventional reconstruction comparator with the correct measurement operator, include learned baselines and augmentation ablations, run multiple seeds, time inference with synchronization, and evaluate independently acquired phantom data. Fit any calibration on validation data only. Molecular detection would require a target-specific contrast mechanism and paired reference assays; this reconstruction pilot supplies neither.
