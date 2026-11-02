@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "data_file": "data/example_subset_100_samples.h5",
+  "seed": 20261011,
+  "training": {"epochs": 50, "batch_size": 4, "width": 16, "learning_rate": 0.001, "num_threads": 4},
+  "arms": [
+    {"name": "unaugmented", "training": {"noise_std": 0, "detector_dropout": 0, "gain_jitter": 0, "mixup_alpha": 0}},
+    {"name": "augmented", "training": {"noise_std": 0.01, "detector_dropout": 0.05, "gain_jitter": 0.05, "mixup_alpha": 0.4}}
+  ],
+  "stress_cases": [
+    {"name": "mild", "noise_std": 0.01, "detector_dropout": 0.05, "gain_jitter": 0.05},
+    {"name": "moderate", "noise_std": 0.025, "detector_dropout": 0.1, "gain_jitter": 0.1},
+    {"name": "severe", "noise_std": 0.05, "detector_dropout": 0.2, "gain_jitter": 0.2}
+  ]
+}

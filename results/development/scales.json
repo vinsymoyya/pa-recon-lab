@@ -1,0 +1,9 @@
+{
+  "input_scale": 200.3928680419922,
+  "target_scale": 366.5512390136719,
+  "quantile": 0.999,
+  "train_samples_used": 80,
+  "values_per_sample": 4096,
+  "seed": 20261011,
+  "split_csv_sha256": "9fba8c0491ba3d3c1fba52d9a2200b0dbbfcb6851491f63ff6d770c81dd36a2e"
+}

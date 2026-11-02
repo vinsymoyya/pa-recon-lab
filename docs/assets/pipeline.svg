@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="210" viewBox="0 0 1120 210" role="img" aria-labelledby="title desc">
+<title id="title">PA Recon Lab experiment pipeline</title><desc id="desc">Signed detector signals pass through a residual U-Net to reconstruction and uncertainty outputs; frozen source splits and corruption evaluation provide reproducibility.</desc>
+<rect width="1120" height="210" rx="16" fill="#111b2e"/>
+<g font-family="system-ui,Segoe UI,sans-serif"><text x="30" y="38" fill="#91a6c3" font-size="14">MEASURE · RECONSTRUCT · CHECK</text>
+<g fill="#1e3048" stroke="#3b526f"><rect x="30" y="60" width="260" height="90" rx="10"/><rect x="350" y="60" width="260" height="90" rx="10"/><rect x="670" y="60" width="420" height="90" rx="10"/></g>
+<g fill="#edf5ff" font-size="20"><text x="50" y="96">Signed sinograms</text><text x="370" y="96">Residual U-Net</text><text x="690" y="96">Reconstruction + predicted σ</text></g>
+<g fill="#a8c2df" font-size="14"><text x="50" y="124">detectors × time</text><text x="370" y="124">shared local / hosted code</text><text x="690" y="124">initial-pressure estimate · calibration required</text></g>
+<g stroke="#5bdbb6" stroke-width="3" fill="none"><path d="M302 105h35m-9-7 9 7-9 7"/><path d="M622 105h35m-9-7 9 7-9 7"/></g>
+<text x="30" y="184" fill="#91a6c3" font-size="14">Source-disjoint splits · Checksum-verified data · Fixed corruption settings · Portable checkpoints · Experiment manifests</text></g></svg>

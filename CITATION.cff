@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this software and separately cite each dataset and method used in your experiment."
+type: software
+title: "PA Recon Lab"
+version: 0.1.0
+authors:
+  - name: "PA Recon Lab contributors"
+repository-code: "https://github.com/vinsymoyya/pa-recon-lab"
+url: "https://github.com/vinsymoyya/pa-recon-lab"
+license: MIT
+abstract: "A reproducible research toolkit for synthetic photoacoustic sinogram-to-initial-pressure reconstruction, acquisition stress evaluation, and uncertainty analysis."
+keywords:
+  - photoacoustic imaging
+  - inverse problems
+  - reconstruction
+  - reproducible research

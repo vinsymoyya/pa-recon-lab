@@ -1,0 +1,36 @@
+{
+  "checkpoint_sha256": "87d4047142641ef28a41df8a4a3ea0852591dc0214b1896031fdf9fc651de4ee",
+  "checkpoint_distributed": false,
+  "model": {
+    "name": "SparseViewRecon",
+    "in_channels": 1,
+    "width": 8,
+    "output_size": [
+      256,
+      256
+    ]
+  },
+  "data": {
+    "input_key": "sinogram",
+    "target_key": "IP",
+    "input_scale": 200.392868041992,
+    "target_scale": 366.551239013672,
+    "sample_axis": 0
+  },
+  "training": {
+    "seed": 20261011,
+    "epoch": 10,
+    "validation_loss": -2.342441749572754,
+    "batch_size": 2,
+    "learning_rate": 0.001,
+    "augmentation": {
+      "noise_std_normalized": 0.01,
+      "detector_dropout": 0.05,
+      "detector_gain_jitter": 0.1
+    },
+    "max_epochs": 10,
+    "torch_version": "2.14.1+cpu",
+    "split_csv_sha256": "9fba8c0491ba3d3c1fba52d9a2200b0dbbfcb6851491f63ff6d770c81dd36a2e"
+  },
+  "metadata_correction": "The original claim_boundary described backprojection translation; actual arrays are sinogram to IP. Weights and recorded metrics are unchanged."
+}

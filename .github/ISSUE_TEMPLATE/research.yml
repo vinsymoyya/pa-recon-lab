@@ -1,0 +1,18 @@
+name: Research contribution
+description: Propose a baseline, experiment, licensed dataset adapter, or failure analysis.
+title: '[Research] '
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Research question and prior work
+      description: State the hypothesis and the closest relevant methods with primary references.
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Data, evaluation protocol and evidence gate
+      description: Include licensing, split unit, baselines, ablations and the evidence needed for the claim.
+    validations:
+      required: true
