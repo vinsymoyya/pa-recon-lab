@@ -98,6 +98,10 @@ To reproduce the release staging, see [publication instructions](docs/PUBLICATIO
 
 ## Research direction
 
+### Acquisition variation and failure investigation
+
+We have now analysed measured phantom records from **two physical systems**, InVision and TROPUS, and added timing, bandwidth, sparse-channel, clipping and reconstruction-calibration diagnostics. The existing model is incompatible with their curved geometry, sampling and signal calibration; no measured-data neural accuracy is claimed. The expanded synthetic study exposes a bandwidth-loss failure of the old augmentation and uncertainty failures under sparse sampling. [Results, figures and commands](docs/ACQUISITION_FAILURES.md).
+
 Our target is reconstruction that remains useful as acquisition conditions change: explicitly model the measurement operator, preserve data consistency, quantify failure, and evaluate outside the training setup. The [roadmap](ROADMAP.md) sets evidence gates for physics-conditioned reconstruction, controlled simulation diversity, calibrated uncertainty, and independent measured-data evaluation. These are research hypotheses; novelty and gains must be established experimentally against prior methods.
 
 ## Contribute

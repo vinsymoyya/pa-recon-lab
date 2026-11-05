@@ -1,0 +1,73 @@
+{
+  "source": "https://doi.org/10.5281/zenodo.14044853",
+  "license": "CC-BY-4.0",
+  "selection_manifest": {
+    "source": "https://doi.org/10.5281/zenodo.14044853",
+    "license": "CC-BY-4.0",
+    "credit": "Grohl et al., OpenQPAIData",
+    "phantom": "P.5.6.2",
+    "wavelength_nm": 750,
+    "selection": "Fixed example ID used in the source loading tutorial; no selection by performance",
+    "full_archive_checksum_verified": false,
+    "integrity": "HTTPS source, exact Content-Range, ZIP central-directory CRC32, SHA256 of fetched members; whole-archive MD5 not checked",
+    "archives": {
+      "invision": {
+        "bytes": 238064334,
+        "published_md5_unverified": "a3ab81d0256feb2ffa8412b3ed40efa6",
+        "member_count": 636,
+        "central_directory_tail_sha256": "49179fa8541dd2c1c303436b9f397b31ffb2f3632cb03df8f59f1fccd978ec64"
+      },
+      "tropus": {
+        "bytes": 286740645,
+        "published_md5_unverified": "e826db69f96eeeadb7e18a459114b9e9",
+        "member_count": 636,
+        "central_directory_tail_sha256": "5ca8662bb56c2daddc36c337c99030d48682672b842d6c34e63beb44f3f83ba7"
+      }
+    },
+    "members": {
+      "invision/raw/P.5.6.2_750_ipasc.hdf5": {
+        "bytes": 4805096,
+        "crc32": "96842db1",
+        "sha256": "3e2ac119425a3dd433f6391c6d20fac3c0c36072f570d262b3971828417c8af6"
+      },
+      "invision/recon/P.5.6.2_750.npy": {
+        "bytes": 331904,
+        "crc32": "af2f906f",
+        "sha256": "c800db31a99b5a25f9e916a757d14288e16fde97720a6e1a60aee6e111c9c9fe"
+      },
+      "invision/labels/P.5.6.2.npy": {
+        "bytes": 166016,
+        "crc32": "2cfa0c61",
+        "sha256": "f63f16dbb8518273220005327f320494dda6cf2fcd37d6a0b0474ae80a0690a6"
+      },
+      "tropus/raw/P.5.6.2_750_ipasc.hdf5": {
+        "bytes": 9855160,
+        "crc32": "e452c70e",
+        "sha256": "6f23cb290557017c08923dd52247ce3a9a88d1dde9b570cdb8d810fa8b6e5b83"
+      },
+      "tropus/recon/P.5.6.2_750.npy": {
+        "bytes": 331904,
+        "crc32": "cd88d0dc",
+        "sha256": "f592fd112f21bf56c7b736c7b7af4821107d52f5409d3be5ae95a3ed1623b847"
+      },
+      "tropus/labels/P.5.6.2.npy": {
+        "bytes": 166016,
+        "crc32": "14f82ecd",
+        "sha256": "1851b784be892ea6af0f0fa3c149590019d06c55d3f64bf06ed98beb00b0b4c4"
+      }
+    }
+  },
+  "status": "complete",
+  "evidence_boundary": "Measured raw data; post-acquisition/operator interventions are constructed scenarios",
+  "beamformer_assumptions": {
+    "sound_speed_m_s": 1500.0,
+    "time_origin_s": 0.0,
+    "calibration_status": "User-declared assumptions, NOT measured calibration",
+    "image_plane": "x-z",
+    "image_size": 96
+  },
+  "implementation_sha256": {
+    "measured.py": "448fff6fba8c2b488fa2f02c82dc88e23f9c6c2cf216de844c0d026ede5b1a3c",
+    "acquisition.py": "c8c66f0b423655fef2008dee127f8a108d2c33e71991583ab30f30bb2b114a6d"
+  }
+}

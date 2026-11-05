@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Measured two-device IPASC audit, efficient source-member fetching, calibration-gap reporting and guarded neural-transfer status.
+- Physical-time acquisition interventions and diagnostic delay-and-sum sensitivity to assumed sound speed, trigger origin and detector positions.
+- Completed ten-condition synthetic failure study, measured sensitivity figures, regional failures and source-level comparisons.
+
 ## 0.2.0 — 2026-11-03
 
 - 45 reliability contracts, including eight regression checks that exposed validation gaps.

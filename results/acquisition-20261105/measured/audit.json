@@ -1,0 +1,382 @@
+[
+  {
+    "file_sha256": "3e2ac119425a3dd433f6391c6d20fac3c0c36072f570d262b3971828417c8af6",
+    "raw_shape": [
+      256,
+      2030,
+      1,
+      1
+    ],
+    "sample_rate_hz": 40000000.0,
+    "dt_s": 2.5e-08,
+    "wavelength_raw": 750,
+    "field_of_view_m": [
+      -0.016,
+      0.016,
+      0.0,
+      0.0,
+      -0.016,
+      0.016
+    ],
+    "pulse_energy_raw": [
+      1113.178474360483
+    ],
+    "pulse_energy_unit": "not recorded in this file; not used for cross-device amplitude comparison",
+    "acquisition_metadata_keys": [
+      "acquisition_wavelengths",
+      "ad_sampling_rate",
+      "data_type",
+      "dimensionality",
+      "photoacoustic_imaging_device_reference",
+      "pulse_energy",
+      "scanning_method",
+      "sizes",
+      "uuid"
+    ],
+    "sound_speed_m_s": null,
+    "time_origin_s": null,
+    "missing_calibration": [
+      "sound speed",
+      "time origin/trigger offset",
+      "ADC full-scale calibration",
+      "detector impulse response"
+    ],
+    "geometry": {
+      "classification": "nonlinear planar array",
+      "coordinate_min_m": [
+        -0.040498511324918295,
+        0.0,
+        -0.027867050148539203
+      ],
+      "coordinate_max_m": [
+        0.040498511324918295,
+        0.0,
+        0.040498309888298396
+      ],
+      "centered_singular_values_m": [
+        0.504789509284808,
+        0.35407491810425185,
+        0.0
+      ],
+      "positions_sha256_float64": "05d954da0f952bedbc278c2df21fb5864537a3faeb2be5ef492f4edf78291685"
+    },
+    "neural_transfer": {
+      "status": "blocked",
+      "reasons": [
+        "Published checkpoint was trained on a top-boundary line array, not this curved device geometry",
+        "Training dt is inferred as 2 ns; recorded device sampling differs",
+        "No calibrated mapping of measured signal units to synthetic pressure normalization",
+        "Provided FBP reconstruction and material labels are not initial-pressure ground truth"
+      ]
+    },
+    "device": "invision",
+    "source_member": "invision/raw/P.5.6.2_750_ipasc.hdf5",
+    "raw_signal": {
+      "detectors": 256,
+      "time_samples": 2030,
+      "rms": 36248.36771459749,
+      "minimum": 494.0,
+      "maximum": 65535.0,
+      "negative_fraction": 0.0,
+      "exact_zero_detectors": 0,
+      "low_rms_detectors": 0,
+      "channel_rms_q05_q50_q95": [
+        34962.720217778326,
+        36333.87723233495,
+        37323.39510693036
+      ],
+      "mean_channel_dc_absolute": 36025.6888796952,
+      "centered_rms": 3941.824409469999,
+      "samples_equal_65535": 67,
+      "extrema_fraction": 0.00013084975369458127,
+      "interpretation": "Signal diagnostics only; low RMS and repeated extrema are not confirmed hardware faults",
+      "dt_s": 2.5e-08,
+      "nyquist_hz": 20000000.0,
+      "spectral_centroid_hz": 878194.3559133724,
+      "spectral_energy_95pct_hz": 5714285.714285715
+    },
+    "cases": [
+      {
+        "case": "nominal",
+        "settings": {},
+        "relative_change_from_nominal_das": 5.5518132354056925e-09,
+        "available_detectors": 256,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "sparse_half",
+        "settings": {
+          "keep_every": 2
+        },
+        "relative_change_from_nominal_das": 0.5079396147780606,
+        "available_detectors": 128,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "contiguous_outage",
+        "settings": {
+          "dead_fraction": 0.25
+        },
+        "relative_change_from_nominal_das": 0.6608214832243408,
+        "available_detectors": 192,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "trigger_two_samples",
+        "settings": {
+          "delay_s": 5e-08
+        },
+        "relative_change_from_nominal_das": 0.053197501812855215,
+        "available_detectors": 256,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "channel_jitter_half_sample",
+        "settings": {
+          "jitter_std_s": 1.25e-08
+        },
+        "relative_change_from_nominal_das": 0.008840871064784137,
+        "available_detectors": 256,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "bandlimit_fs_eighth",
+        "settings": {
+          "lowpass_hz": 5000000.0
+        },
+        "relative_change_from_nominal_das": 0.004903578009907412,
+        "available_detectors": 256,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "clipping_3rms",
+        "settings": {
+          "clip_rms": 3
+        },
+        "relative_change_from_nominal_das": 0.14111747241627523,
+        "available_detectors": 256,
+        "clipped_fraction": 0.024938423645320198
+      },
+      {
+        "case": "sound_speed_minus_5pct",
+        "sound_speed_m_s": 1425.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 1.1024844004209184,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "sound_speed_plus_5pct",
+        "sound_speed_m_s": 1575.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 0.8444850302935081,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "assumed_origin_plus_two_samples",
+        "sound_speed_m_s": 1500.0,
+        "time_origin_s": 5e-08,
+        "relative_change_from_nominal_das": 0.05319750191924684,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "assumed_positions_jitter_0p1mm",
+        "sound_speed_m_s": 1500.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 0.03525897831167166,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      }
+    ],
+    "comparison_boundary": "Relative changes are sensitivity, NOT accuracy against true initial pressure"
+  },
+  {
+    "file_sha256": "6f23cb290557017c08923dd52247ce3a9a88d1dde9b570cdb8d810fa8b6e5b83",
+    "raw_shape": [
+      512,
+      2094,
+      1,
+      1
+    ],
+    "sample_rate_hz": 40000000.0,
+    "dt_s": 2.5e-08,
+    "wavelength_raw": 750.0,
+    "field_of_view_m": [
+      -0.032,
+      0.032,
+      0.0,
+      0.0,
+      -0.032,
+      0.032
+    ],
+    "pulse_energy_raw": [
+      94.78444636139314
+    ],
+    "pulse_energy_unit": "not recorded in this file; not used for cross-device amplitude comparison",
+    "acquisition_metadata_keys": [
+      "acoustic_coupling_agent",
+      "acquisition_wavelengths",
+      "ad_sampling_rate",
+      "compression",
+      "data_type",
+      "dimensionality",
+      "encoding",
+      "photoacoustic_imaging_device_reference",
+      "pulse_energy",
+      "scanning_method",
+      "uuid"
+    ],
+    "sound_speed_m_s": null,
+    "time_origin_s": null,
+    "missing_calibration": [
+      "sound speed",
+      "time origin/trigger offset",
+      "ADC full-scale calibration",
+      "detector impulse response"
+    ],
+    "geometry": {
+      "classification": "nonlinear planar array",
+      "coordinate_min_m": [
+        -0.0406386598023377,
+        0.0,
+        -0.040729291744142
+      ],
+      "coordinate_max_m": [
+        0.0406386598023377,
+        0.0,
+        0.040729291744142
+      ],
+      "centered_singular_values_m": [
+        0.6647017099033496,
+        0.638392733081732,
+        0.0
+      ],
+      "positions_sha256_float64": "3e1668c0ce7b4cd2bd13fc973a38bf1ac09734ebcbb412e5b03d12a9f5f35d13"
+    },
+    "neural_transfer": {
+      "status": "blocked",
+      "reasons": [
+        "Published checkpoint was trained on a top-boundary line array, not this curved device geometry",
+        "Training dt is inferred as 2 ns; recorded device sampling differs",
+        "No calibrated mapping of measured signal units to synthetic pressure normalization",
+        "Provided FBP reconstruction and material labels are not initial-pressure ground truth"
+      ]
+    },
+    "device": "tropus",
+    "source_member": "tropus/raw/P.5.6.2_750_ipasc.hdf5",
+    "raw_signal": {
+      "detectors": 512,
+      "time_samples": 2094,
+      "rms": 2011.2547133159746,
+      "minimum": -2201.3,
+      "maximum": -0.0,
+      "negative_fraction": 0.9990448901623686,
+      "exact_zero_detectors": 0,
+      "low_rms_detectors": 0,
+      "channel_rms_q05_q50_q95": [
+        1939.1394520010401,
+        2012.8821385888698,
+        2082.010061465428
+      ],
+      "mean_channel_dc_absolute": 2009.802842477764,
+      "centered_rms": 62.970016577316805,
+      "samples_equal_65535": 0,
+      "extrema_fraction": 0.0009560425620821395,
+      "interpretation": "Signal diagnostics only; low RMS and repeated extrema are not confirmed hardware faults",
+      "dt_s": 2.5e-08,
+      "nyquist_hz": 20000000.0,
+      "spectral_centroid_hz": 9733165.782335853,
+      "spectral_energy_95pct_hz": 18892072.588347662
+    },
+    "cases": [
+      {
+        "case": "nominal",
+        "settings": {},
+        "relative_change_from_nominal_das": 3.4031167310416564e-09,
+        "available_detectors": 512,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "sparse_half",
+        "settings": {
+          "keep_every": 2
+        },
+        "relative_change_from_nominal_das": 0.5051621261952484,
+        "available_detectors": 256,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "contiguous_outage",
+        "settings": {
+          "dead_fraction": 0.25
+        },
+        "relative_change_from_nominal_das": 0.3963186332752646,
+        "available_detectors": 384,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "trigger_two_samples",
+        "settings": {
+          "delay_s": 5e-08
+        },
+        "relative_change_from_nominal_das": 0.1362379675879789,
+        "available_detectors": 512,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "channel_jitter_half_sample",
+        "settings": {
+          "jitter_std_s": 1.25e-08
+        },
+        "relative_change_from_nominal_das": 0.06549752275504232,
+        "available_detectors": 512,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "bandlimit_fs_eighth",
+        "settings": {
+          "lowpass_hz": 5000000.0
+        },
+        "relative_change_from_nominal_das": 0.0559058873630898,
+        "available_detectors": 512,
+        "clipped_fraction": 0.0
+      },
+      {
+        "case": "clipping_3rms",
+        "settings": {
+          "clip_rms": 3
+        },
+        "relative_change_from_nominal_das": 0.09380001970795589,
+        "available_detectors": 512,
+        "clipped_fraction": 0.0009551098376313276
+      },
+      {
+        "case": "sound_speed_minus_5pct",
+        "sound_speed_m_s": 1425.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 0.5880793979757054,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "sound_speed_plus_5pct",
+        "sound_speed_m_s": 1575.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 0.49925850672234867,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "assumed_origin_plus_two_samples",
+        "sound_speed_m_s": 1500.0,
+        "time_origin_s": 5e-08,
+        "relative_change_from_nominal_das": 0.138081642022345,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      },
+      {
+        "case": "assumed_positions_jitter_0p1mm",
+        "sound_speed_m_s": 1500.0,
+        "time_origin_s": 0.0,
+        "relative_change_from_nominal_das": 0.11360439910871487,
+        "evidence_kind": "Reconstruction assumption changed; measured trace unchanged"
+      }
+    ],
+    "comparison_boundary": "Relative changes are sensitivity, NOT accuracy against true initial pressure"
+  }
+]

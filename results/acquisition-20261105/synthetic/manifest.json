@@ -1,0 +1,92 @@
+{
+  "config": {
+    "schema_version": 1,
+    "data_kind": "synthetic development subset",
+    "time_sampling": {
+      "dt_s": 2e-09,
+      "status": "inferred from released simulator, not recorded per sample",
+      "derivation": "CFL 0.3 * grid spacing 1e-5 m / sound speed 1500 m/s",
+      "source": "https://doi.org/10.5281/zenodo.21785486"
+    },
+    "corruption_seeds": [
+      17,
+      29,
+      43
+    ],
+    "cases": [
+      {
+        "name": "clean",
+        "settings": {}
+      },
+      {
+        "name": "bandlimit_20mhz",
+        "settings": {
+          "lowpass_hz": 20000000
+        }
+      },
+      {
+        "name": "trigger_delay_10ns",
+        "settings": {
+          "delay_s": 1e-08
+        }
+      },
+      {
+        "name": "channel_jitter_5ns",
+        "settings": {
+          "jitter_std_s": 5e-09
+        }
+      },
+      {
+        "name": "sparse_every_second",
+        "settings": {
+          "keep_every": 2
+        }
+      },
+      {
+        "name": "contiguous_outage_quarter",
+        "settings": {
+          "dead_fraction": 0.25
+        }
+      },
+      {
+        "name": "gain_ramp_30pct",
+        "settings": {
+          "gain_slope": 0.3
+        }
+      },
+      {
+        "name": "clip_3rms",
+        "settings": {
+          "clip_rms": 3
+        }
+      },
+      {
+        "name": "noise_10pct_rms",
+        "settings": {
+          "noise_rms_fraction": 0.1
+        }
+      },
+      {
+        "name": "combined",
+        "settings": {
+          "lowpass_hz": 20000000,
+          "delay_s": 1e-08,
+          "dead_fraction": 0.125,
+          "noise_rms_fraction": 0.1
+        }
+      }
+    ],
+    "interpretation": "Exploratory post-acquisition interventions. Parameters are engineering scenarios, not measured failure distributions. No medium/geometry resimulation."
+  },
+  "dataset_sha256": "a25bb58f77f64f5a6b948c2484597cb888f61e6e82179f7f29b423db4cdee7bd",
+  "split_sha256": "9fba8c0491ba3d3c1fba52d9a2200b0dbbfcb6851491f63ff6d770c81dd36a2e",
+  "checkpoints_sha256": [
+    "bc7360a9eee183d481b6ffbfae2c5efc2c943293f815c50969756d27081cc971",
+    "33f7c33cad6b7d41c42b619f481635b89f45906ca620c2237bd73129cc19778d"
+  ],
+  "device": "cpu",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "status": "complete",
+  "scope": "Inspected synthetic development sources; not measured acquisition or external validation"
+}

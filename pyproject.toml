@@ -19,6 +19,9 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Image Processing",
 ]
 
+[project.optional-dependencies]
+figures = ["matplotlib>=3.9"]
+
 [project.urls]
 Repository = "https://github.com/vinsymoyya/pa-recon-lab"
 Issues = "https://github.com/vinsymoyya/pa-recon-lab/issues"

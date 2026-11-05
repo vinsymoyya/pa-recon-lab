@@ -1,0 +1,14 @@
+{
+  "source": "Analytic center-point arrival experiment, not measured data or full-wave simulation",
+  "expected_peak": [
+    32,
+    32
+  ],
+  "observed_peak": [
+    32,
+    32
+  ],
+  "delay_samples": 2,
+  "compensated_relative_image_error": 5.58580602756691e-09,
+  "boundary": "Checks interpolation, time sign, and geometry units only; not quantitative PAI inverse validity"
+}

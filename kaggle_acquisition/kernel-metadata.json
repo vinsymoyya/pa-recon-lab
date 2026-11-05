@@ -1,0 +1,14 @@
+{
+  "id": "vinsymoyya/pa-recon-acquisition-failure-investigation",
+  "title": "PA Recon Acquisition Failure Investigation",
+  "code_file": "study.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "false",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": ["vinsymoyya/photoacoustic-skin-phantoms-100-source-mirror"],
+  "model_sources": ["vinsymoyya/pa-recon-lab/pyTorch/unaugmented/1", "vinsymoyya/pa-recon-lab/pyTorch/augmented/1"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

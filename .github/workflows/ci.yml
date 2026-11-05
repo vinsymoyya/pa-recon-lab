@@ -33,5 +33,7 @@ jobs:
         run: python scripts/check_reliability.py --expected 45
       - name: Check generated notebook matches the package
         run: python scripts/build_kaggle_notebook.py --check
+      - name: Check acquisition notebook matches the package
+        run: python scripts/build_acquisition_notebook.py --check
       - name: Build distributable package
         run: python -m build

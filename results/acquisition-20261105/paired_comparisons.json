@@ -1,0 +1,142 @@
+{
+  "clean": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": 0.00032019174300986083,
+    "paired_bootstrap_95ci": [
+      -0.00104261614907598,
+      0.00165815427262854
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "bandlimit_20mhz": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": 0.005256140955547053,
+    "paired_bootstrap_95ci": [
+      0.0020733619269917582,
+      0.008689249139630355
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "trigger_delay_10ns": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": 0.0003111587101309182,
+    "paired_bootstrap_95ci": [
+      -0.0010346488381877369,
+      0.0016337675733514758
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "channel_jitter_5ns": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.0008641414310912865,
+    "paired_bootstrap_95ci": [
+      -0.0025107808268584044,
+      0.0009209327338250563
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "sparse_every_second": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.004256588480890088,
+    "paired_bootstrap_95ci": [
+      -0.005749187303704112,
+      -0.0025680267036873954
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "contiguous_outage_quarter": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.00371127890984113,
+    "paired_bootstrap_95ci": [
+      -0.004373658031754913,
+      -0.003121007883598878
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "gain_ramp_30pct": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.0007689348711412108,
+    "paired_bootstrap_95ci": [
+      -0.0021506672723258847,
+      0.0007138053136402397
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "clip_3rms": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": 0.00016694650669326906,
+    "paired_bootstrap_95ci": [
+      -0.001297785864854341,
+      0.0014325029318612115
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "noise_10pct_rms": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.002043966170641791,
+    "paired_bootstrap_95ci": [
+      -0.003099746253878176,
+      -0.0008251613775460424
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  },
+  "combined": {
+    "metric": "rmse",
+    "direction": "candidate minus reference; lower favors candidate",
+    "group_count": 10,
+    "mean_paired_delta": -0.0028967748988547133,
+    "paired_bootstrap_95ci": [
+      -0.00417051563465543,
+      -0.0014291322816792614
+    ],
+    "resamples": 10000,
+    "seed": 20261105,
+    "unit": "source group",
+    "interpretation": "Exploratory percentile interval; no multiplicity correction or clinical inference"
+  }
+}

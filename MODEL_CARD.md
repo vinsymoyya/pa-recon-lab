@@ -40,6 +40,8 @@ Paired source-group macro-RMSE delta (augmented minus unaugmented), severe: -0.0
 
 ## Reliability and limitations
 
+The [acquisition investigation](docs/ACQUISITION_FAILURES.md) adds measured InVision/TROPUS metadata audits and explicitly constructed failure scenarios. The current checkpoint is not compatible with these devices without a validated acquisition/normalization mapping. In the expanded synthetic study, the augmented checkpoint is worse than the unaugmented checkpoint under additional 20 MHz bandwidth limitation. These diagnostic results do not extend the v0.2.0 clinical or scanner-generalization evidence.
+
 The public inference example selects the first development test source in the split CSV (source ID 6062). Visual inspection shows that much of its fine and deep vascular pattern is missing in the reconstruction. Lower aggregate RMSE does not establish preservation of vascular anatomy. [Observed example](https://github.com/vinsymoyya/pa-recon-lab/blob/main/docs/assets/pilot_reconstruction.png).
 
 The software provides 45 automated checks covering leakage, normalization, numerics, inference, provenance, downloads, preflight validation, and paired analysis. Passing them establishes those software contracts, not diagnostic accuracy, generalization, or calibrated uncertainty.
